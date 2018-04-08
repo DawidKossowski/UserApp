@@ -9,9 +9,9 @@ class UserEdit extends React.PureComponent {
         ...this.props.user,
     };
 
-    //update state when page is reloading in /edit/:id
+    //update state when page is reloading on /edit/:id
     componentWillReceiveProps(nextProps) {
-        this.setState( {...nextProps.user} );
+        this.setState({ ...nextProps.user });
     }
 
     componentWillMount() {
@@ -104,9 +104,9 @@ class UserEdit extends React.PureComponent {
     }
 
     onChangeAddress(event) {
-        const {id, value} = event.target;
-        let address = {...this.state.address, [id]: value};
-        this.setState({address});
+        const { id, value } = event.target;
+        let address = { ...this.state.address, [id]: value };
+        this.setState({ address });
     }
 
     onSubmitForm(event) {
