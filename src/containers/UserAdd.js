@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {addUser} from '../actions/actions';
 
 class UserAdd extends React.PureComponent {
+
     state = {
         id: this.props.lastId + 1,
         name: '',
@@ -17,7 +18,6 @@ class UserAdd extends React.PureComponent {
         },
         phone: ''
     };
-
 
     render() {
         return (

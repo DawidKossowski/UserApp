@@ -10,11 +10,11 @@ class UserEdit extends React.PureComponent {
     };
 
     //update state when page is reloading on /edit/:id
-    componentWillReceiveProps(nextProps) {
-        this.setState({ ...nextProps.user });
+    static getDerivedStateFromProps(nextProps, prevState) {
+        return { ...nextProps.user };
     }
 
-    componentWillMount() {
+    componentDidMount() {
         if(!this.props.user) {
             this.props.fetchUsers();
         }

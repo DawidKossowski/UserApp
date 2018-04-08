@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 import {fetchUsers, deleteUser} from '../actions/actions';
 
 class Users extends React.PureComponent {
+
     componentDidMount() {
         if(!this.props.users.length) {
             this.props.fetchUsers();
