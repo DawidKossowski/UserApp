@@ -7,7 +7,7 @@ import {addUser} from '../actions/actions';
 
 class UserAdd extends React.PureComponent {
     state = {
-        fullName: '',
+        name: '',
         username: '',
         email: '',
         street: '',
@@ -24,19 +24,19 @@ class UserAdd extends React.PureComponent {
                 <h1 className="mb-4">Add new user:</h1>
                 <form onSubmit={(e) => this.onSubmitForm(e)}>
                     <div className="form-group row">
-                        <label htmlFor="usernameInput" className="col-2 col-form-label">Full name</label>
+                        <label htmlFor="nameInput" className="col-2 col-form-label">Full name</label>
                         <div className="col-10">
-                            <input className="form-control" type="text" id="usernameInput"
-                                value={this.state.username}
-                                onChange={(username) => this.setState({username: username.target.value})}/>
+                            <input className="form-control" type="text" id="nameInput"
+                                value={this.state.name}
+                                onChange={(name) => this.setState({name: name.target.value})}/>
                         </div>
                     </div>
                     <div className="form-group row">
-                        <label htmlFor="fullnameInput" className="col-2 col-form-label">Username</label>
+                        <label htmlFor="usernameeInput" className="col-2 col-form-label">Username</label>
                         <div className="col-10">
-                            <input className="form-control" type="text" id="fullnameInput"
-                                   value={this.state.fullName}
-                                   onChange={(fullName) => this.setState({fullName: fullName.target.value})}/>
+                            <input className="form-control" type="text" id="usernameInput"
+                                   value={this.state.username}
+                                   onChange={(username) => this.setState({username: username.target.value})}/>
                         </div>
                     </div>
                     <div className="form-group row">
@@ -98,8 +98,8 @@ class UserAdd extends React.PureComponent {
     onSubmitForm(event) {
         event.preventDefault();
         let id = this.props.lastId + 1;
-        let { fullName, username, email, street, suite, city, zipcode, phone } = this.state;
-        let newUser = new User(id, fullName, username, email, street, suite, city, zipcode, phone);
+        let { name, username, email, street, suite, city, zipcode, phone } = this.state;
+        let newUser = new User(id, name, username, email, street, suite, city, zipcode, phone);
         this.props.addUser(newUser);
         this.props.history.push('/');
     }
